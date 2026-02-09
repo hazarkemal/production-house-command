@@ -3,15 +3,35 @@
 @tailwind utilities;
 
 :root {
-  --foreground: #1a1a1a;
-  --background: #ffffff;
-  --border: #e5e5e5;
-  --muted: #737373;
+  --foreground: #fafafa;
+  --background: #000000;
+  --border: #27272a;
+  --muted: #a1a1aa;
   --accent: #22c55e;
 }
 
 body {
-  font-family: "Times New Roman", Times, serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background: var(--background);
   color: var(--foreground);
+}
+
+/* ReactFlow dark theme overrides */
+.react-flow__controls {
+  background: #18181b !important;
+  border-color: #3f3f46 !important;
+}
+
+.react-flow__controls-button {
+  background: #18181b !important;
+  border-color: #3f3f46 !important;
+  fill: #a1a1aa !important;
+}
+
+.react-flow__controls-button:hover {
+  background: #27272a !important;
+}
+
+.react-flow__attribution {
+  display: none !important;
 }

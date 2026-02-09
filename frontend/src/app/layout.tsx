@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Production House — Command Center",
-  description: "AI Agent Factory Management",
+  title: "AGI Holdings — Command Center",
+  description: "Autonomous Agent Swarm Management",
 };
 
 export default function RootLayout({

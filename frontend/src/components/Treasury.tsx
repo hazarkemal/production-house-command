@@ -20,7 +20,7 @@ export default function Treasury() {
 
   const fetchBalances = async () => {
     setLoading(true);
-    const ethPrice = 2100; // Would fetch from CoinGecko
+    const ethPrice = 2100;
     
     const chains = [
       { name: "Base", rpc: "https://mainnet.base.org", symbol: "ETH" },
@@ -78,41 +78,41 @@ export default function Treasury() {
   }, []);
 
   return (
-    <div>
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-normal">Treasury</h2>
+    <div className="space-y-6">
+      <div className="flex items-center justify-between">
+        <h2 className="text-xl font-semibold text-white">Treasury</h2>
         <button
           onClick={fetchBalances}
-          className="text-sm text-gray-500 hover:text-black"
+          className="text-sm text-zinc-500 hover:text-white transition"
         >
           Refresh
         </button>
       </div>
 
-      <div className="grid grid-cols-3 gap-4 mb-8">
-        <div className="border border-gray-200 rounded-lg p-6 text-center">
-          <div className="text-3xl font-light">${total.toFixed(2)}</div>
-          <div className="text-xs text-gray-500 uppercase tracking-wide mt-1">
+      <div className="grid grid-cols-3 gap-4">
+        <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6 text-center">
+          <div className="text-3xl font-light text-white">${total.toFixed(2)}</div>
+          <div className="text-xs text-zinc-500 uppercase tracking-wide mt-2">
             Total Value
           </div>
         </div>
         {balances.map((b) => (
-          <div key={b.chain} className="border border-gray-200 rounded-lg p-6">
-            <div className="text-xs text-gray-500 uppercase tracking-wide mb-2">
+          <div key={b.chain} className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
+            <div className="text-xs text-zinc-500 uppercase tracking-wide mb-2">
               {b.chain}
             </div>
-            <div className="text-xl">
+            <div className="text-xl text-white">
               {b.native.toFixed(4)} {b.nativeSymbol}
             </div>
-            <div className="text-sm text-gray-500">≈ ${b.usdValue.toFixed(2)}</div>
+            <div className="text-sm text-zinc-500">≈ ${b.usdValue.toFixed(2)}</div>
           </div>
         ))}
       </div>
 
-      <div className="text-xs text-gray-400">
-        Wallet: {WALLET}
-        <br />
-        Last updated: {lastUpdate}
+      <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-4">
+        <div className="text-xs text-zinc-500 mb-2">Master Wallet</div>
+        <div className="font-mono text-sm text-zinc-300">{WALLET}</div>
+        <div className="text-xs text-zinc-600 mt-2">Last updated: {lastUpdate}</div>
       </div>
     </div>
   );
